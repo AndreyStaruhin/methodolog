@@ -20,7 +20,7 @@ class ClassicPair {
     }
 
     public int hashCode() {
-        return java.util.Objects.hash(super.hashCode(), first, second);
+        return java.util.Objects.hash(first, second);
     }
 
     @java.lang.Override
@@ -34,16 +34,23 @@ class ClassicPair {
     final String first;
     final Integer second;
 
-    static void main() {
+    static void main(String[] args) {
         var a = new ClassicPair("1", 1);
     }
 }
 
+
 /*
-   Для записей не нужно реализовывать сравнение самостоятельно, так как они относятся к типам
-   значений. Как мфлидировать данные - не совсем понимаю, мозможно, сделать специальный метод валидации
-   Ещё вариант - создавать с помощью статическокого фаблричного метода внутри
+ Будут сгенерированны: геттеры, конструктор со всеми параметрами, методы для сравнения двух записей как типов-значений
  */
 record RecordPair(String first, Integer second) {
-
+   //Придумал не я, claaude - здесь мой пробел
+    public RecordPair {   // ← нет круглых скобок с параметрами
+        if (first == null || first.isBlank()) {
+            throw new IllegalArgumentException("first must be non-blank");
+        }
+        if (second == null || second < 0) {
+            throw new IllegalArgumentException("second must be non-negative");
+        }
+    }
 }
