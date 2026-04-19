@@ -31,8 +31,8 @@ class ClassicPair {
                 '}';
     }
 
-    String first;
-    Integer second;
+    final String first;
+    final Integer second;
 
     static void main() {
         var a = new ClassicPair("1", 1);
