@@ -1,5 +1,5 @@
 class ClassicPair {
-    public ClassicPair(Integet second, String first) {
+    public ClassicPair(String first, Integer second) {
         this.second = second;
         this.first = first;
     }
@@ -8,27 +8,19 @@ class ClassicPair {
         return first;
     }
 
-    public void setFirst(String first) {
-        this.first = first;
-    }
 
-    public Integet getSecond() {
+    public Integer getSecond() {
         return second;
-    }
-
-    public void setSecond(Integet second) {
-        this.second = second;
     }
 
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
         ClassicPair that = (ClassicPair) object;
         return java.util.Objects.equals(first, that.first) && java.util.Objects.equals(second, that.second);
     }
 
     public int hashCode() {
-        return Objects.hash(super.hashCode(), first, second);
+        return java.util.Objects.hash(super.hashCode(), first, second);
     }
 
     @java.lang.Override
@@ -40,7 +32,11 @@ class ClassicPair {
     }
 
     String first;
-    Integet second;
+    Integer second;
+
+    static void main() {
+        var a = new ClassicPair("1", 1);
+    }
 }
 
 /*
