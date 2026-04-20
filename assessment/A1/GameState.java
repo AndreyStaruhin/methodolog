@@ -15,7 +15,7 @@ sealed interface GameState permits Active, Cancelled, Draft, Finished {
                 return "Мы ещё не начали";
             }
             case Finished finished -> {
-                return "Игра окончера";
+                return "Игра окончена";
             }
         }
     }
